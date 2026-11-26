@@ -9,12 +9,13 @@ aco-dev/
 └── repos/                 git submodules (branch: develop)
     ├── aco-arch-dotfiles  installer, signed pacman registry, packaging, repositories.json
     ├── aco-docs           docs of the small components
+    ├── aco-theme          theme engine: palettes, light/dark, accents, transparency
     └── aco-{foot,fuzzel,ghostty,gtk3,gtk4,hypr,kitty,libfm,nvim,pcmanfm,
              tmux,vim,wallpaper,waybar,yazi,zsh}   one config each
 ```
 
 ## Component -> installed path
-`foot fuzzel ghostty hypr kitty libfm nvim pcmanfm tmux vim waybar yazi zsh` -> `~/.config/<name>`; `gtk3` -> `~/.config/gtk-3.0`; `gtk4` -> `~/.config/gtk-4.0`; `wallpaper` -> wallpaper config/assets. `vm.sh sync` uses this mapping.
+`aco-theme` -> `~/.config/aco-theme` (command `aco-theme`, output in `~/.config/aco/theme/`); `foot fuzzel ghostty hypr kitty libfm nvim pcmanfm tmux vim waybar yazi zsh` -> `~/.config/<name>`; `gtk3` -> `~/.config/gtk-3.0`; `gtk4` -> `~/.config/gtk-4.0`; `wallpaper` -> wallpaper config/assets. `vm.sh sync` uses this mapping.
 
 ## Flow
 1. Edit a component in `repos/aco-<x>` on a feature branch.

@@ -17,4 +17,4 @@ Not a distribution fork, no custom kernel, no GUI installer (for now), no suppor
 ## Definition of done for a change
 Works in the VM from the golden image, matches the theme, documented, conventional commit, no new idle load without justification.
 
-> The shared theme tokens (palette, fonts, sizes) should be written down in `docs/THEME.md` once chosen. Until then, derive them from the existing configs and do not invent new ones.
+> The shared theme tokens (palette, fonts, sizes) are defined in [THEME.md](THEME.md) and implemented by `aco-theme`.
