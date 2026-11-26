@@ -24,10 +24,12 @@ The configuration of each tool lives in its **own repository** (git submodule un
 8. Do not put secrets, images or generated artefacts in git (`vm/images/` is ignored).
 
 ## Skills
-`git-workflow`, `component-change`, `vm-dev-loop`, `clean-docs`, `release-finalize` in `.agents/skills/<name>/SKILL.md`.
+`autonomous-loop` (start here for any goal), `git-workflow`, `component-change`, `vm-dev-loop`, `clean-docs`, `release-finalize` in `.agents/skills/<name>/SKILL.md`.
 
 ## Commands
 ```bash
 git submodule update --init --recursive   # after cloning aco-dev
-vm/vm.sh run | sync [comp...] | shot | ssh <cmd> | reset
+make help        # all targets
+make setup | vm-up | sync C="hypr waybar" | shot | logs | status | branches | vm-reset
+vm/vm.sh hypr <hyprctl args> | ssh <cmd>
 ```

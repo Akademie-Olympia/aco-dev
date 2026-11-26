@@ -67,8 +67,13 @@ EOP';;
     done; ssh_vm 'pgrep -x Hyprland >/dev/null && hyprctl reload >/dev/null 2>&1; true';;
   shot)   # screenshot of the VM desktop to images/shot.png
     ssh_vm 'XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 grim - 2>/dev/null || (sudo pacman -S --noconfirm grim >/dev/null && XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 grim -)' > $D/shot.png; echo $D/shot.png;;
+  status) if [ -f $D/qemu.pid ] && kill -0 "$(cat $D/qemu.pid)" 2>/dev/null; then echo "vm: running"; else echo "vm: stopped"; exit 0; fi
+    ssh_vm true 2>/dev/null && echo "ssh: ok" || { echo "ssh: not ready (still booting?)"; exit 0; }
+    ssh_vm 'pgrep -x Hyprland >/dev/null && echo "hyprland: running" || echo "hyprland: not running"';;
+  hypr)   shift; ssh_vm "export XDG_RUNTIME_DIR=/run/user/1000; export HYPRLAND_INSTANCE_SIGNATURE=\$(ls -t /run/user/1000/hypr | head -1); hyprctl $*";;
+  logs)   ssh_vm 'export XDG_RUNTIME_DIR=/run/user/1000; sig=$(ls -t /run/user/1000/hypr | head -1); tail -n ${N:-60} /run/user/1000/hypr/$sig/hyprland.log; echo ---; journalctl --user -b --no-pager -n 30';;
   ssh)    shift; ssh_vm "$@";;
   stop)   stop;;
   reset)  stop; rm -f $D/run.qcow2;;
-  *) echo "usage: vm.sh base|provision|desktop|golden|run|sync|shot|ssh|stop|reset   (GUI=1 for window)";;
+  *) echo "usage: vm.sh base|provision|desktop|golden|run|sync|shot|status|hypr|logs|ssh|stop|reset   (GUI=1 for window)";;
 esac
