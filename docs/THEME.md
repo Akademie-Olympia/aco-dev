@@ -12,7 +12,7 @@ a clock-first lock and login screen, layered-wave wallpaper, rounded windows wit
 ## Choices (user-switchable)
 | Choice | Values | Default |
 | --- | --- | --- |
-| theme | `aco` (graphite / paper) | `aco` |
+| theme (profile) | `aco` (graphite / paper), `graphit` (neutral grey), `kuehl` (cool blue-grey), `warm` (sandy) | `aco` |
 | mode | `dark`, `light` | `dark` |
 | accent | red orange yellow green cyan blue purple pink graphite, `#rrggbb` | `blue` |
 | transparency | `on` (transparent bar, translucent launcher/terminals + blur), `off` | `on` |
