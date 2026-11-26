@@ -1,7 +1,7 @@
 # aco-dev entry point. `make help` lists targets.
 VM := vm/vm.sh
 .DEFAULT_GOAL := help
-.PHONY: help setup vm-up vm-gui vm-down vm-reset sync shot status logs branches check
+.PHONY: help setup vm-up vm-gui vm-down vm-reset sync shot status logs branches check binds
 
 help: ## show targets
 	@grep -E '^[a-z-]+:.*##' $(MAKEFILE_LIST) | awk -F':.*## ' '{printf "  %-10s %s\n",$$1,$$2}'
@@ -27,5 +27,7 @@ logs: ## hyprland + user journal logs from the VM
 	$(VM) logs
 branches: ## branch and dirty state of every repo
 	@git submodule foreach -q 'echo "$$name: $$(git branch --show-current) dirty=$$(git status --short | wc -l)"'
+binds: ## check every Hyprland key binding inside the VM (commands exist, no double bindings)
+	$(VM) ssh 'cd ~/.config/hypr && python3 scripts/check-binds.py'
 check: ## lint shell scripts and conventional-commit subjects of develop
 	@command -v shellcheck >/dev/null && find repos vm -name '*.sh' -not -path '*/.git/*' | xargs shellcheck -S warning || echo "shellcheck not installed, skipped"
