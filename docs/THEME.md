@@ -39,6 +39,10 @@ Spotlight-like launcher, rounded windows with a soft shadow, a single accent col
 `radius` 10 (windows, menus, launcher), `radius_small` 6 (buttons, pills), `gaps_in` 4, `gaps_out` 8,
 `border_width` 1, bar height 32, `opacity` 0.84 (surfaces), `term_opacity` 0.94, blur size 8 / 2 passes.
 
+## Terminal colours
+The 16 ANSI colours come from the palette (light mode keeps "black" dark so it stays readable); colour 12 is the
+accent. CLI tools should use palette colours (`fg=12`, `%F{8}`) instead of hex values, so they follow the theme live.
+
 ## Rules
 - New colours go into the palette files, never into a component.
 - Changing these defaults is a global theme change: ask the user first.
