@@ -90,3 +90,11 @@
 	path = repos/aco-sddm
 	url = https://github.com/Akademie-Olympia/aco-sddm.git
 	branch = develop
+[submodule "repos/aco-qt"]
+	path = repos/aco-qt
+	url = https://github.com/Akademie-Olympia/aco-qt.git
+	branch = develop
+[submodule "repos/aco-settings"]
+	path = repos/aco-settings
+	url = https://github.com/Akademie-Olympia/aco-settings.git
+	branch = develop
