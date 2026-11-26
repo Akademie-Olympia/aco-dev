@@ -6,7 +6,8 @@ Components never hard-code these values: they ship templates in `aco-theme/*.tpl
 
 ## Look
 Calm and modern, slightly macOS-inspired without copying it: one slim transparent top bar with workspace circles whose text suits the
-wallpaper, a compact control centre and a notification side panel, a Spotlight-like launcher, rounded windows with a soft shadow, a single accent colour, short settle-in animations.
+wallpaper, a compact control centre and a notification side panel, an Arch menu at the top left, a Spotlight-like launcher,
+a clock-first lock and login screen, layered-wave wallpaper, rounded windows with a soft shadow, a single accent colour, short settle-in animations.
 
 ## Choices (user-switchable)
 | Choice | Values | Default |
