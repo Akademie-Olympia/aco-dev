@@ -70,3 +70,7 @@
 	path = repos/aco-zsh
 	url = https://github.com/Akademie-Olympia/aco-zsh.git
 	branch = develop
+[submodule "repos/aco-theme"]
+	path = repos/aco-theme
+	url = https://github.com/Akademie-Olympia/aco-theme.git
+	branch = develop
