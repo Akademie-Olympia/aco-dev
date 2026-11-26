@@ -78,3 +78,15 @@
 	path = repos/aco-swaync
 	url = https://github.com/Akademie-Olympia/aco-swaync.git
 	branch = develop
+[submodule "repos/aco-greetd"]
+	path = repos/aco-greetd
+	url = https://github.com/Akademie-Olympia/aco-greetd.git
+	branch = develop
+[submodule "repos/aco-rofi"]
+	path = repos/aco-rofi
+	url = https://github.com/Akademie-Olympia/aco-rofi.git
+	branch = develop
+[submodule "repos/aco-sddm"]
+	path = repos/aco-sddm
+	url = https://github.com/Akademie-Olympia/aco-sddm.git
+	branch = develop
