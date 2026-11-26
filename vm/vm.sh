@@ -58,13 +58,17 @@ EOP';;
     if [ "${GUI:-0}" = 1 ]; then qemu_run "$D/run.qcow2"; else qemu_run "$D/run.qcow2"; wait_ssh; fi; echo "ssh: ./vm.sh ssh";;
   start)  qemu_run "$D/base.qcow2"; wait_ssh;;
   sync)   # copy local component repos (../aco-*) into ~/.config in the VM; usage: sync [hypr waybar ...]
-    shift; MAP="foot:foot fuzzel:fuzzel ghostty:ghostty gtk3:gtk-3.0 gtk4:gtk-4.0 hypr:hypr kitty:kitty libfm:libfm nvim:nvim pcmanfm:pcmanfm tmux:tmux vim:vim waybar:waybar yazi:yazi zsh:zsh"
+    shift; MAP="theme:aco-theme foot:foot fuzzel:fuzzel ghostty:ghostty gtk3:gtk-3.0 gtk4:gtk-4.0 hypr:hypr kitty:kitty libfm:libfm nvim:nvim pcmanfm:pcmanfm tmux:tmux vim:vim waybar:waybar yazi:yazi zsh:zsh"
     for e in $MAP; do r=${e%%:*}; t=${e##*:}
       if [ $# -gt 0 ] && [[ " $* " != *" $r "* ]]; then continue; fi
       [ -d ../repos/aco-$r ] || continue
       echo "sync aco-$r -> ~/.config/$t"
       COPYFILE_DISABLE=1 tar --no-xattrs -C ../repos/aco-$r --exclude=.git -cf - . | ssh_vm "mkdir -p ~/.config/$t && tar --warning=no-unknown-keyword -C ~/.config/$t -xf -"
-    done; ssh_vm 'pgrep -x Hyprland >/dev/null && hyprctl reload >/dev/null 2>&1; true';;
+    done
+    # aco-theme is not packaged in the golden image yet: expose the dev copy, then re-render and reload.
+    ssh_vm 'export XDG_RUNTIME_DIR=/run/user/1000 DBUS_SESSION_BUS_ADDRESS=unix:path=/run/user/1000/bus HYPRLAND_INSTANCE_SIGNATURE=$(ls -t /run/user/1000/hypr 2>/dev/null | head -1)
+      [ -f ~/.config/aco-theme/theme.sh ] && sudo ln -sf ~/.config/aco-theme/theme.sh /usr/local/bin/aco-theme
+      if command -v aco-theme >/dev/null; then aco-theme apply; else pgrep -x Hyprland >/dev/null && hyprctl reload >/dev/null 2>&1; fi; true';;
   shot)   # screenshot of the VM desktop to images/shot.png
     ssh_vm 'XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 grim - 2>/dev/null || (sudo pacman -S --noconfirm grim >/dev/null && XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 grim -)' > $D/shot.png; echo $D/shot.png;;
   status) if [ -f $D/qemu.pid ] && kill -0 "$(cat $D/qemu.pid)" 2>/dev/null; then echo "vm: running"; else echo "vm: stopped"; exit 0; fi
