@@ -5,8 +5,8 @@ Components never hard-code these values: they ship templates in `aco-theme/*.tpl
 `~/.config/aco/theme/<component>/`, and include the result. See `repos/aco-theme/README.md` for the mechanics.
 
 ## Look
-Calm and modern, slightly macOS-inspired without copying it: one slim transparent top bar with workspace circles, a centred
-Spotlight-like launcher, rounded windows with a soft shadow, a single accent colour, short settle-in animations.
+Calm and modern, slightly macOS-inspired without copying it: one slim transparent top bar with workspace circles whose text suits the
+wallpaper, a compact control centre and a notification side panel, a Spotlight-like launcher, rounded windows with a soft shadow, a single accent colour, short settle-in animations.
 
 ## Choices (user-switchable)
 | Choice | Values | Default |
@@ -15,6 +15,8 @@ Spotlight-like launcher, rounded windows with a soft shadow, a single accent col
 | mode | `dark`, `light` | `dark` |
 | accent | red orange yellow green cyan blue purple pink graphite, `#rrggbb` | `blue` |
 | transparency | `on` (transparent bar, translucent launcher/terminals + blur), `off` | `on` |
+| bar text | `auto` (light or dark to suit the wallpaper), `light`, `dark` | `auto` |
+| bar opacity | tint behind the bar, `0` – `1` | `0` |
 
 ## Palette `aco`
 | Token | Dark | Light | Use |
@@ -36,8 +38,8 @@ Spotlight-like launcher, rounded windows with a soft shadow, a single accent col
   disable them explicitly, so `==`, `->` and `!=` always stay separate characters.
 
 ## Geometry
-`radius` 10 (windows, menus, launcher), `radius_small` 6 (buttons, pills), `gaps_in` 4, `gaps_out` 8,
-`border_width` 1, bar height 32, `opacity` 0.84 (surfaces), `term_opacity` 0.94, `bar_opacity` 0 (the bar floats over the wallpaper), blur size 8 / 2 passes.
+`radius` 10 (windows, menus, tiles), `radius_small` 6 (buttons), `radius_large` 16 (panels, notifications, launcher), `gaps_in` 4, `gaps_out` 8,
+`border_width` 1, bar height 32, `opacity` 0.84 (surfaces), `term_opacity` 0.94, the bar uses `bar_light_fg`/`bar_light_tint` or `bar_dark_fg`/`bar_dark_tint` (independent of light/dark mode), blur size 8 / 2 passes.
 
 ## Terminal colours
 The 16 ANSI colours come from the palette (light mode keeps "black" dark so it stays readable); colour 12 is the
