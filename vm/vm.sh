@@ -5,7 +5,7 @@ cd "$(dirname "$0")"
 D=images; mkdir -p $D
 URL=https://geo.mirror.pkgbuild.com/images/latest/Arch-Linux-x86_64-cloudimg.qcow2
 SIZE=${SIZE:-30G}; MEM=${MEM:-6G}; CPUS=${CPUS:-4}; PORT=${PORT:-2222}
-SSH_OPTS=(-p $PORT -i $D/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR)
+SSH_OPTS=(-p $PORT -i $D/id_ed25519 -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o LogLevel=ERROR -o ConnectTimeout=15)
 DAEMON=(-daemonize); DISPLAY_OPT=(-display none); [ "${GUI:-0}" = 1 ] && { DISPLAY_OPT=(-display cocoa); DAEMON=(); }
 qemu_run() { # $1 disk
   qemu-system-x86_64 -machine q35 -cpu max -accel tcg,thread=multi -smp $CPUS -m $MEM \
@@ -63,7 +63,7 @@ EOP';;
       if [ $# -gt 0 ] && [[ " $* " != *" $r "* ]]; then continue; fi
       [ -d ../repos/aco-$r ] || continue
       echo "sync aco-$r -> ~/.config/$t"
-      tar -C ../repos/aco-$r --exclude=.git -cf - . | ssh_vm "mkdir -p ~/.config/$t && tar -C ~/.config/$t -xf -"
+      COPYFILE_DISABLE=1 tar --no-xattrs -C ../repos/aco-$r --exclude=.git -cf - . | ssh_vm "mkdir -p ~/.config/$t && tar --warning=no-unknown-keyword -C ~/.config/$t -xf -"
     done; ssh_vm 'pgrep -x Hyprland >/dev/null && hyprctl reload >/dev/null 2>&1; true';;
   shot)   # screenshot of the VM desktop to images/shot.png
     ssh_vm 'XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 grim - 2>/dev/null || (sudo pacman -S --noconfirm grim >/dev/null && XDG_RUNTIME_DIR=/run/user/1000 WAYLAND_DISPLAY=wayland-1 grim -)' > $D/shot.png; echo $D/shot.png;;
