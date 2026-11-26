@@ -1,0 +1,72 @@
+[submodule "repos/aco-arch-dotfiles"]
+	path = repos/aco-arch-dotfiles
+	url = https://github.com/Akademie-Olympia/aco-arch-dotfiles.git
+	branch = develop
+[submodule "repos/aco-docs"]
+	path = repos/aco-docs
+	url = https://github.com/Akademie-Olympia/aco-docs.git
+	branch = develop
+[submodule "repos/aco-foot"]
+	path = repos/aco-foot
+	url = https://github.com/Akademie-Olympia/aco-foot.git
+	branch = develop
+[submodule "repos/aco-fuzzel"]
+	path = repos/aco-fuzzel
+	url = https://github.com/Akademie-Olympia/aco-fuzzel.git
+	branch = develop
+[submodule "repos/aco-ghostty"]
+	path = repos/aco-ghostty
+	url = https://github.com/Akademie-Olympia/aco-ghostty.git
+	branch = develop
+[submodule "repos/aco-gtk3"]
+	path = repos/aco-gtk3
+	url = https://github.com/Akademie-Olympia/aco-gtk3.git
+	branch = develop
+[submodule "repos/aco-gtk4"]
+	path = repos/aco-gtk4
+	url = https://github.com/Akademie-Olympia/aco-gtk4.git
+	branch = develop
+[submodule "repos/aco-hypr"]
+	path = repos/aco-hypr
+	url = https://github.com/Akademie-Olympia/aco-hypr.git
+	branch = develop
+[submodule "repos/aco-kitty"]
+	path = repos/aco-kitty
+	url = https://github.com/Akademie-Olympia/aco-kitty.git
+	branch = develop
+[submodule "repos/aco-libfm"]
+	path = repos/aco-libfm
+	url = https://github.com/Akademie-Olympia/aco-libfm.git
+	branch = develop
+[submodule "repos/aco-nvim"]
+	path = repos/aco-nvim
+	url = https://github.com/Akademie-Olympia/aco-nvim.git
+	branch = develop
+[submodule "repos/aco-pcmanfm"]
+	path = repos/aco-pcmanfm
+	url = https://github.com/Akademie-Olympia/aco-pcmanfm.git
+	branch = develop
+[submodule "repos/aco-tmux"]
+	path = repos/aco-tmux
+	url = https://github.com/Akademie-Olympia/aco-tmux.git
+	branch = develop
+[submodule "repos/aco-vim"]
+	path = repos/aco-vim
+	url = https://github.com/Akademie-Olympia/aco-vim.git
+	branch = develop
+[submodule "repos/aco-wallpaper"]
+	path = repos/aco-wallpaper
+	url = https://github.com/Akademie-Olympia/aco-wallpaper.git
+	branch = develop
+[submodule "repos/aco-waybar"]
+	path = repos/aco-waybar
+	url = https://github.com/Akademie-Olympia/aco-waybar.git
+	branch = develop
+[submodule "repos/aco-yazi"]
+	path = repos/aco-yazi
+	url = https://github.com/Akademie-Olympia/aco-yazi.git
+	branch = develop
+[submodule "repos/aco-zsh"]
+	path = repos/aco-zsh
+	url = https://github.com/Akademie-Olympia/aco-zsh.git
+	branch = develop
