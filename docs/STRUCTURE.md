@@ -15,12 +15,13 @@ aco-dev/
     ├── aco-sddm           login screen (SDDM with the aco QML theme), system module below /usr
     ├── aco-settings       settings app (Rust, GTK 4, libadwaita), command aco-settings
     ├── aco-common         shared Rust crate of the native apps (Git dependency, pinned by Cargo.lock)
+    ├── aco-files          file manager (native, base group), command aco-files
     ├── aco-pdf, aco-edit  PDF reader and mini editor (native, base group)
     ├── aco-music, aco-video, aco-images   media apps (native, group "media")
     ├── aco-media-tools    meta package of the media apps
     ├── aco-obsidian       Obsidian theme add-on (group "obsidian")
     ├── aco-code           Code - OSS theme add-on (group "code")
-    ├── aco-qt             Qt/KDE apps (Dolphin) in the ACO theme through qt6ct
+    ├── aco-qt             Qt/KDE apps in the ACO theme through qt6ct (Dolphin optional)
     └── aco-{foot,fuzzel,ghostty,gtk3,gtk4,hypr,kitty,libfm,nvim,pcmanfm,
              rofi,swaync,tmux,vim,wallpaper,waybar,yazi,zsh}   one config each
 ```

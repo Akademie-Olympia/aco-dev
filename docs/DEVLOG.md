@@ -15,6 +15,11 @@ of the component repositories; decisions in [DECISIONS.md](DECISIONS.md).
 - **GitHub:** created the public repositories aco-music, aco-video, aco-images, aco-pdf, aco-edit, aco-media-tools,
   aco-code, aco-obsidian, aco-settings, aco-qt, aco-sddm, aco-rofi, aco-greetd; pushed `develop` everywhere.
 - **aco-dev:** registered the new submodules; this knowledge base (COMPONENTS, DECISIONS, ROADMAP, DEVLOG, PITFALLS).
+- **aco-files:** new file manager (Rust, GTK 4) written and tested in the VM; fixed during testing: a RefCell borrow
+  held across `if let` (crash on "up"), lost preview callbacks on rebinding, paste going into the selected folder,
+  focus loss after menus (file shortcuts now on the window in the bubble phase), unreliable `trash:///` for undo.
+  Registered as a native base package; aco-hypr uses it for Super+E and folders, Dolphin is optional.
+- **CI:** native app repositories got the package workflow; develop CI stays red until the release merge (ROADMAP).
 
 ## 2026-11-26
 - Bar, control centre, notification side panel, Arch menu, energy menu, lock screen and SDDM login redesigned.

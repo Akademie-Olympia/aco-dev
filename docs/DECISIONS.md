@@ -79,3 +79,18 @@ by adding a new one that names the old number; do not rewrite history.
 ### D15 – Release flow
 - Work lands on `develop` (pushed). `main` is changed only by the user at release; the registry builds from `main`
   of every repository. See [ROADMAP.md](ROADMAP.md) for the release checklist.
+
+### D16 – aco-files replaces Dolphin as the default file manager (2026-11-27)
+- **Where:** `aco-files` repo; `aco-hypr` (`fileManager`, `defaults.sh`, PKGBUILD); `aco-waybar` (window name).
+- **What:** Super+E and `inode/directory` open ACO Dateien; Dolphin, kio-extras, ffmpegthumbs and ark moved from
+  hard dependencies of aco-hypr to optdepends (Dolphin stays the fallback in `defaults.sh` if installed).
+- **Why:** user request for an own, fast, secure file manager that fits the theme; dropping the KDE stack from the
+  base desktop saves disk space and memory. Supersedes the second half of D12.
+- **How (security):** all file access through GIO (local, removable and GVfs network locations alike), no shell,
+  files are only opened with their registered app (never executed), archives through `bsdtar` (refuses absolute
+  paths and `..`), thumbnails private (0600) in the shared freedesktop cache, remote previews off by default.
+
+### D17 – Undo of "move to trash" reads the trash folders directly (2026-11-27)
+- **Where:** `aco-files/src/trash.rs`.
+- **Why:** GVfs' `trash:///` listing can lag behind a file that was just trashed (seen in the VM); the `.trashinfo`
+  files of the freedesktop trash specification are authoritative. `trash:///` remains the fallback.

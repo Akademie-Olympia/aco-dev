@@ -21,3 +21,12 @@ Things that cost time once. Read before debugging in the VM or the registry.
 - **GTK `Pixbuf` is not `Send`:** decode on a worker thread into raw bytes and build the pixbuf on the UI thread.
 - **set -e and helper functions:** a function whose last test fails returns 1 and ends the script; end such helpers
   with `return 0`.
+- **QEMU `sendkey` and the German layout:** the VM uses `kb_layout = "de"`, so QEMU's `z` arrives as `y` and the
+  other way round (`sendkey ctrl-y` = Ctrl+Z). `mouse_move` is relative and drops quick successive moves; prefer
+  keyboard tests.
+- **RefCell in `if let`:** `if let Some(x) = cell.borrow().clone() { cell.replace(..) }` panics in edition 2021 –
+  the borrow lives until the end of the `if let`. Bind the value first.
+- **Application accelerators beat text fields:** `set_accels_for_action` fires before an entry sees the key, so file
+  shortcuts (Ctrl+C/V/X, Delete) belong in a `ShortcutController` in the bubble phase instead.
+- **GVfs trash listing lags:** a file trashed a moment ago may be missing from `trash:///`; read the `.trashinfo`
+  files for undo (aco-files `trash.rs`).

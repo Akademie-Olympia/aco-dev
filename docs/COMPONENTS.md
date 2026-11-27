@@ -21,11 +21,12 @@ group, never part of the base metapackage; **library** / **tooling** = no packag
 | aco-fuzzel | module | `aco-arch-dotfiles-fuzzel` | `~/.config/fuzzel` | alternative launcher |
 | aco-tmux, aco-zsh, aco-nvim, aco-vim, aco-yazi | module | `aco-arch-dotfiles-<name>` | `~/.config/<name>` | terminal-first tools |
 | aco-gtk3, aco-gtk4 | module | `aco-arch-dotfiles-gtk-3.0`, `-gtk-4.0` | `~/.config/gtk-3.0`, `gtk-4.0` | GTK look (also styles the native apps) |
-| aco-qt | module | `aco-arch-dotfiles-qt6ct` | `~/.config/qt6ct` | Qt/KDE apps (Dolphin) through qt6ct + KDE colour scheme |
+| aco-qt | module | `aco-arch-dotfiles-qt6ct` | `~/.config/qt6ct` | Qt/KDE apps through qt6ct + KDE colour scheme (Dolphin is optional since aco-files) |
 | aco-libfm, aco-pcmanfm | module | `aco-arch-dotfiles-<name>` | `~/.config/<name>` | legacy file-manager settings |
 | aco-sddm | system | `aco-arch-dotfiles-sddm` | `/usr`, `aco-login` | login screen (SDDM theme: clock first, then picture and password) |
 | aco-greetd | system | `aco-arch-dotfiles-greetd` | `/usr`, `aco-greeter` | older login alternative (greetd + ReGreet) |
 | aco-settings | native | `aco-arch-dotfiles-settings` | `aco-settings` | settings: displays, sound, Bluetooth, network, camera, energy, appearance |
+| aco-files | native | `aco-arch-dotfiles-files` | `aco-files` (`org.aco.Files`) | file manager (Super+E, default for folders): tabs, grid/list, search, network, previews, trash with undo |
 | aco-pdf | native | `aco-arch-dotfiles-pdf` | `aco-pdf` (`org.aco.Pdf`) | PDF reader (Poppler): search, zoom, pages |
 | aco-edit | native | `aco-arch-dotfiles-edit` | `aco-edit` (`org.aco.Edit`) | mini editor (GtkSourceView): highlighting, search/replace |
 
@@ -55,9 +56,3 @@ group, never part of the base metapackage; **library** / **tooling** = no packag
 `install.sh` without options installs **standard** = `base media browser`. Options: `--minimal` (base), `--full`,
 `--with a,b`, or package names. After installation: `aco install <group>`, `aco remove <group>`, `aco groups`.
 The group table lives twice (in `install.sh` and in `packages/aco-arch-dotfiles-core/aco`); a test keeps them equal.
-
-## Planned
-
-| Repo | Kind | Package | Purpose |
-| --- | --- | --- | --- |
-| aco-files | native | `aco-arch-dotfiles-files` | own file manager (Rust, GTK 4), replaces Dolphin as default – see [ROADMAP.md](ROADMAP.md) |
