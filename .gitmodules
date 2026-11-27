@@ -134,3 +134,7 @@
 	path = repos/aco-code
 	url = https://github.com/Akademie-Olympia/aco-code.git
 	branch = develop
+[submodule "repos/aco-files"]
+	path = repos/aco-files
+	url = https://github.com/Akademie-Olympia/aco-files.git
+	branch = develop
