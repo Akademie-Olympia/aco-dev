@@ -9,6 +9,7 @@ Read first: [docs/VISION.md](docs/VISION.md), [docs/THEME.md](docs/THEME.md), [d
 - [docs/DECISIONS.md](docs/DECISIONS.md) – what was decided, where, when and why.
 - [docs/DEVLOG.md](docs/DEVLOG.md) – dated log of each working session.
 - [docs/PITFALLS.md](docs/PITFALLS.md) – traps in the VM, theme engine and registry.
+- [docs/NATIVE-APPS.md](docs/NATIVE-APPS.md) – building, theming (appearance) and testing the native Rust apps.
 
 Keep them current: a new component updates COMPONENTS; a non-obvious choice adds a DECISIONS entry; every session
 adds a DEVLOG entry and moves ROADMAP tasks. Commit them as `docs(dev): ...` in aco-dev.

@@ -58,8 +58,11 @@ EOP';;
     rm -f $D/run.qcow2; qemu-img create -q -f qcow2 -F qcow2 -b golden.qcow2 $D/run.qcow2
     if [ "${GUI:-0}" = 1 ]; then qemu_run "$D/run.qcow2"; else qemu_run "$D/run.qcow2"; wait_ssh; fi; echo "ssh: ./vm.sh ssh";;
   start)  qemu_run "$D/base.qcow2"; wait_ssh;;
+  resume) # boot the existing run overlay again (keeps its state), e.g. with more CPUS/MEM
+    [ -f $D/run.qcow2 ] || { echo "no run overlay; use ./vm.sh run"; exit 1; }
+    qemu_run "$D/run.qcow2"; wait_ssh;;
   sync)   # copy local component repos (../aco-*) into ~/.config in the VM; usage: sync [hypr waybar ...]
-    shift; MAP="theme:aco-theme code:aco-code obsidian:aco-obsidian foot:foot fuzzel:fuzzel ghostty:ghostty gtk3:gtk-3.0 gtk4:gtk-4.0 hypr:hypr kitty:kitty libfm:libfm nvim:nvim pcmanfm:pcmanfm qt:qt6ct rofi:rofi swaync:swaync tmux:tmux vim:vim wallpaper:wallpaper waybar:waybar yazi:yazi zsh:zsh"
+    shift; MAP="theme:aco-theme code:aco-code obsidian:aco-obsidian firefox:aco-firefox foot:foot fuzzel:fuzzel ghostty:ghostty gtk3:gtk-3.0 gtk4:gtk-4.0 hypr:hypr kitty:kitty libfm:libfm nvim:nvim pcmanfm:pcmanfm qt:qt6ct rofi:rofi swaync:swaync tmux:tmux vim:vim wallpaper:wallpaper waybar:waybar yazi:yazi zsh:zsh"
     for e in $MAP; do r=${e%%:*}; t=${e##*:}
       if [ $# -gt 0 ] && [[ " $* " != *" $r "* ]]; then continue; fi
       [ -d ../repos/aco-$r ] || continue
