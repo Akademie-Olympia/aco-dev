@@ -7,7 +7,8 @@ of the component repositories; decisions in [DECISIONS.md](DECISIONS.md).
 - **Compact chrome refinement:** shared GTK workspaces now use slim unframed tool actions, quieter navigation,
   circular accent swatches and a 0.94 chrome alpha with the existing transparency toggle. Files and Editor expose
   creation and save as icon actions. Checked Settings, Files, Editor and PDF visually in the Arch VM, and verified
-  the theme renders alpha 1 when transparency is off.
+  the theme renders alpha 1 when transparency is off. Theme 0.3.0 introduces the chrome token, and GTK 4 requires
+  that version so partial package updates stay renderable.
 - **Native workspace design** (aco-gtk4): opaque palette surfaces, distinct action buttons and shared navigation
   styling. Settings has grouped search and Files has an address bar and creation menu.
 - **Documents and media:** Editor adds cursor position and detects external changes before saving. PDF adds

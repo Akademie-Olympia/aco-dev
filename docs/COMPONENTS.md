@@ -11,7 +11,7 @@ group, never part of the base metapackage; **library** / **tooling** = no packag
 
 | Repo | Kind | Package | Installs to / command | Purpose |
 | --- | --- | --- | --- | --- |
-| aco-theme | module | `aco-arch-dotfiles-aco-theme` (0.2.0) | `~/.config/aco-theme`, `aco-theme` | theme engine: profiles, light/dark, accent, transparency; renders every `*.tpl` |
+| aco-theme | module | `aco-arch-dotfiles-aco-theme` (0.3.0) | `~/.config/aco-theme`, `aco-theme` | theme engine: profiles, light/dark, accent, transparency; renders every `*.tpl` |
 | aco-hypr | module | `aco-arch-dotfiles-hypr` | `~/.config/hypr` | Hyprland, lock/idle, screenshots, energy and system menus, default apps (`defaults.sh`) |
 | aco-waybar | module | `aco-arch-dotfiles-waybar` | `~/.config/waybar` | transparent top bar: Arch menu, workspace circles, status icons |
 | aco-swaync | module | `aco-arch-dotfiles-swaync` | `~/.config/swaync` | notifications, control centre, notification side panel, media card |
