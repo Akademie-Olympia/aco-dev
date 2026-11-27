@@ -101,7 +101,8 @@ by adding a new one that names the old number; do not rewrite history.
 - **Why:** GVfs' `trash:///` listing can lag behind a file that was just trashed (seen in the VM); the `.trashinfo`
   files of the freedesktop trash specification are authoritative. `trash:///` remains the fallback.
 
-### D19 – Opaque native application workspaces (2026-11-27)
+### D19 – Readable native application workspaces (2026-11-27)
 
-aco-gtk4 defines opt-in workspace styling for application surfaces, navigation and actions. The scope keeps
-desktop panel and menu translucency independent of document and settings readability.
+aco-gtk4 defines opt-in workspace styling for application surfaces, navigation and actions. Following user feedback,
+toolbars use compact unframed symbols and native chrome has a restrained 0.94 alpha when transparency is on.
+The system transparency switch makes it opaque. Document and editor content keeps a high-contrast palette surface.

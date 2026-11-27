@@ -25,7 +25,9 @@ aco-images, aco-music, aco-video, aco-settings. Read [CONVENTIONS.md](CONVENTION
 
 Use the opt-in `aco-workspace` window class and the shared `aco-titlebar`, `aco-commandbar`, `aco-rail` and
 `aco-statusbar` classes from aco-gtk4. Use `aco-primary` for the main action and `aco-tool` for secondary controls.
-These surfaces follow the palette and stay opaque while the desktop's panels and menus can use transparency.
+These surfaces follow the palette. Toolbars use compact unframed icons, with a visible focus outline and tooltips.
+Window chrome uses a light translucent tint when system transparency is on and becomes opaque when it is off.
+Document pages and primary work areas stay readable.
 
 ## Appearance (theme, own style, transparency)
 
@@ -45,9 +47,8 @@ opacity, and edit an own CSS file (`~/.config/aco/apps/<app>.css`, reloaded on s
 `~/.config/aco/apps/<app>.conf`.
 
 - Never hard-code colours: use libadwaita colours (`@accent_bg_color`, `var(--window-bg-color)`, …).
-- With transparency the window, header bar, sidebar and view backgrounds are translucent (Hyprland blurs behind
-  them); popovers and dialogs stay solid. Content that must stay readable as a "sheet" (document pages, PDF pages,
-  pictures) is drawn opaque by the app.
+- With transparency the window chrome uses a restrained tint (Hyprland blurs behind it); popovers and dialogs stay
+  solid. Content that must stay readable as a "sheet" (document pages, PDF pages, pictures) is drawn opaque by the app.
 
 ## Build and test in the VM
 

@@ -40,7 +40,10 @@ a clock-first lock and login screen, layered-wave wallpaper, rounded windows wit
 
 ## Geometry
 `radius` 10 (windows, menus, tiles), `radius_small` 6 (buttons), `radius_large` 16 (panels, notifications, launcher), `gaps_in` 4, `gaps_out` 8,
-`border_width` 1, bar height 32, `opacity` 0.84 (surfaces), `term_opacity` 0.94, the bar uses `bar_light_fg`/`bar_light_tint` or `bar_dark_fg`/`bar_dark_tint` (independent of light/dark mode), blur size 8 / 2 passes.
+`border_width` 1, bar height 32, `opacity` 0.84 (desktop surfaces), `chrome_alpha` 0.94 (native
+window chrome, 1 when transparency is off), `term_opacity` 0.94, the bar uses
+`bar_light_fg`/`bar_light_tint` or `bar_dark_fg`/`bar_dark_tint` (independent of light/dark mode),
+blur size 8 / 2 passes.
 
 ## Terminal colours
 The 16 ANSI colours come from the palette (light mode keeps "black" dark so it stays readable); colour 12 is the

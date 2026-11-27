@@ -29,7 +29,7 @@ Not done: nothing is on `main` yet, so the signed registry does not contain the 
 
 - Native workspace pass across Settings, Files, Editor, PDF and the media apps. Settings pages are searchable,
   Files has a dedicated address bar, Editor reports syntax and position, and PDF has thumbnail navigation and
-  individual search matches. Workspaces use opaque theme surfaces.
+  individual search matches. Compact toolbars and lightly translucent chrome preserve readable content surfaces.
 - The base and minimal installation include all seven native apps, including Musik, Video and Bilder.
 
 ## Release checklist (user step – agents never touch `main`)
