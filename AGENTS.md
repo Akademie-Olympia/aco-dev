@@ -3,12 +3,22 @@
 You are working in **aco-dev**, the umbrella repository for the ACO Arch Linux desktop.
 Read first: [docs/VISION.md](docs/VISION.md), [docs/THEME.md](docs/THEME.md), [docs/STRUCTURE.md](docs/STRUCTURE.md), [docs/CONVENTIONS.md](docs/CONVENTIONS.md).
 
+## Knowledge base (start here to continue the work)
+- [docs/ROADMAP.md](docs/ROADMAP.md) – current status, release checklist, next tasks, specs of planned components.
+- [docs/COMPONENTS.md](docs/COMPONENTS.md) – every repository: kind, package, install group, paths.
+- [docs/DECISIONS.md](docs/DECISIONS.md) – what was decided, where, when and why.
+- [docs/DEVLOG.md](docs/DEVLOG.md) – dated log of each working session.
+- [docs/PITFALLS.md](docs/PITFALLS.md) – traps in the VM, theme engine and registry.
+
+Keep them current: a new component updates COMPONENTS; a non-obvious choice adds a DECISIONS entry; every session
+adds a DEVLOG entry and moves ROADMAP tasks. Commit them as `docs(dev): ...` in aco-dev.
+
 ## What this is
 A slim, secure, modern, consistently themed Hyprland desktop on plain Arch. It is installed once on a base Arch and updated with `pacman -Syu`.
 The configuration of each tool lives in its **own repository** (git submodule under `repos/`). This repo holds only the glue: vision, conventions, agent skills and the VM.
 
 ## Layout
-- `repos/aco-*` – submodules, one per component plus `aco-arch-dotfiles` (installer, signed pacman registry, packaging) and `aco-docs`.
+- `repos/aco-*` – submodules, one per component (configs, native Rust apps, add-ons) plus `aco-common` (shared Rust crate), `aco-arch-dotfiles` (installer, signed pacman registry, packaging) and `aco-docs`.
 - `vm/` – x86_64 Arch test VM (`vm.sh`): base -> golden image -> disposable runs.
 - `docs/` – cross-repo documentation.
 - `.agents/skills/` – task playbooks; load the matching skill before doing that task.
@@ -16,7 +26,7 @@ The configuration of each tool lives in its **own repository** (git submodule un
 ## Hard rules
 1. **Never commit to `main`** in any repo. Work on `develop` or `feat/<topic>`. `main` is touched only in the release step, by the user.
 2. **Conventional Commits** in every repo (`feat(waybar): ...`). English, imperative, <= 72 chars subject.
-3. **No pushes, no GitHub changes, no force-push** without explicit user approval.
+3. **No pushes, no GitHub changes, no force-push** without explicit user approval. The user has approved pushing `develop` and creating component repositories in `Akademie-Olympia`; never force-push, never push `main`.
 4. Change a component only inside its own repo; then bump the submodule pointer here in a separate commit.
 5. Test in the VM before calling something done (`vm/vm.sh sync <component>`, `vm/vm.sh shot`).
 6. Clean code, no dead config, no commented-out leftovers, no unexplained magic values. Documentation in English, short and current.
