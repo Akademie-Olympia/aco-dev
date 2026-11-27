@@ -17,8 +17,8 @@ aco-dev/
     ├── aco-common         shared Rust crate of the native apps (Git dependency, pinned by Cargo.lock)
     ├── aco-files          file manager (native, base group), command aco-files
     ├── aco-pdf, aco-edit  PDF reader and mini editor (native, base group)
-    ├── aco-music, aco-video, aco-images   media apps (native, group "media")
-    ├── aco-media-tools    meta package of the media apps
+    ├── aco-music, aco-video, aco-images   media apps (native, base group)
+    ├── aco-media-tools    media metapackage (base or standalone)
     ├── aco-obsidian       Obsidian theme add-on (group "obsidian")
     ├── aco-code           Code - OSS theme add-on (group "code")
     ├── aco-qt             Qt/KDE apps in the ACO theme through qt6ct (Dolphin optional)

@@ -52,8 +52,9 @@ by adding a new one that names the old number; do not rewrite history.
 
 ### D10 – Install groups and the standard installation (2026-11-27)
 - **Where:** `aco-arch-dotfiles/install.sh`, `packages/aco-arch-dotfiles-core/aco`, `packaging/arch/packages.json`.
-- **What:** groups `base media browser obsidian code full`; default = base + media + browser; `"addon"` packages
-  never enter the base metapackage `aco-arch-dotfiles`; `aco-arch-dotfiles-full` = base + every add-on + Firefox.
+- **What:** groups `base media browser obsidian code full`; standard installs base and Firefox. Base includes
+  all native ACO desktop apps. The media metapackage can also be installed independently. Full adds Firefox,
+  Obsidian and Code - OSS.
 - **Why:** a usable desktop by default, optional extras with one command or one installer flag, all as pacman packages.
 
 ### D11 – Native packages in the registry build the staged commit (2026-11-27)
@@ -99,3 +100,8 @@ by adding a new one that names the old number; do not rewrite history.
 - **Where:** `aco-files/src/trash.rs`.
 - **Why:** GVfs' `trash:///` listing can lag behind a file that was just trashed (seen in the VM); the `.trashinfo`
   files of the freedesktop trash specification are authoritative. `trash:///` remains the fallback.
+
+### D19 – Opaque native application workspaces (2026-11-27)
+
+aco-gtk4 defines opt-in workspace styling for application surfaces, navigation and actions. The scope keeps
+desktop panel and menu translucency independent of document and settings readability.

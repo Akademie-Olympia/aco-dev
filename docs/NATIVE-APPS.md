@@ -21,6 +21,12 @@ aco-images, aco-music, aco-video, aco-settings. Read [CONVENTIONS.md](CONVENTION
   features, keys, settings and dependencies, `data/org.aco.<App>.desktop`, `packaging/arch/PKGBUILD`
   (`options=('!debug')`, `cargo fetch --locked` / `cargo build --frozen`, all system libraries in `depends`).
 
+## Workspace styling
+
+Use the opt-in `aco-workspace` window class and the shared `aco-titlebar`, `aco-commandbar`, `aco-rail` and
+`aco-statusbar` classes from aco-gtk4. Use `aco-primary` for the main action and `aco-tool` for secondary controls.
+These surfaces follow the palette and stay opaque while the desktop's panels and menus can use transparency.
+
 ## Appearance (theme, own style, transparency)
 
 aco-theme renders the resolved theme to `~/.config/aco/theme/gtk-4.0/tokens.conf` (through aco-gtk4). Every app calls

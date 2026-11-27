@@ -12,7 +12,7 @@ Done and pushed to `develop` of every repository:
 - Native apps (Rust, GTK 4): settings, file manager (aco-files), Musik (+ mini player, MPRIS), Video, Bilder, PDF,
   Editor; shared crate aco-common.
 - Theming of Dolphin/KDE (aco-qt), Obsidian (aco-obsidian) and Code - OSS (aco-code, verified in the VM).
-- Packaging: native packages in the registry, add-on groups, `aco-arch-dotfiles-full`, installer flags
+- Packaging: native package definitions, add-on groups, `aco-arch-dotfiles-full`, installer flags
   `--minimal --full --with`, `aco install|remove|groups`. Registry tests and component checks (32) pass in the VM;
   add-on, meta and native packages build with makepkg in the VM (aco-pdf: 396 KB binary).
 - aco-files tested in the VM: grid/list, previews, tabs/windows, recursive search, context menu, copy/paste with
@@ -24,6 +24,13 @@ Done and pushed to `develop` of every repository:
   `settings.json` is written correctly; its effect inside Code (no chat panel) was not looked at.
 
 Not done: nothing is on `main` yet, so the signed registry does not contain the new packages. See the release checklist.
+
+### Local development
+
+- Native workspace pass across Settings, Files, Editor, PDF and the media apps. Settings pages are searchable,
+  Files has a dedicated address bar, Editor reports syntax and position, and PDF has thumbnail navigation and
+  individual search matches. Workspaces use opaque theme surfaces.
+- The base and minimal installation include all seven native apps, including Musik, Video and Bilder.
 
 ## Release checklist (user step – agents never touch `main`)
 

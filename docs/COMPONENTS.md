@@ -25,19 +25,19 @@ group, never part of the base metapackage; **library** / **tooling** = no packag
 | aco-libfm, aco-pcmanfm | module | `aco-arch-dotfiles-<name>` | `~/.config/<name>` | legacy file-manager settings |
 | aco-sddm | system | `aco-arch-dotfiles-sddm` | `/usr`, `aco-login` | login screen (SDDM theme: clock first, then picture and password) |
 | aco-greetd | system | `aco-arch-dotfiles-greetd` | `/usr`, `aco-greeter` | older login alternative (greetd + ReGreet) |
-| aco-settings | native | `aco-arch-dotfiles-settings` | `aco-settings` | settings: displays, sound, Bluetooth, network, camera, energy, appearance |
+| aco-settings | native | `aco-arch-dotfiles-settings` | `aco-settings` | searchable settings for displays, sound, Bluetooth, networking, energy and appearance |
 | aco-files | native | `aco-arch-dotfiles-files` | `aco-files` (`org.aco.Files`) | file manager (Super+E, default for folders): tabs, grid/list, search, network, previews, trash with undo |
-| aco-pdf | native | `aco-arch-dotfiles-pdf` | `aco-pdf` (`org.aco.Pdf`) | PDF reader (Poppler): search, zoom, pages |
-| aco-edit | native | `aco-arch-dotfiles-edit` | `aco-edit` (`org.aco.Edit`) | mini editor (GtkSourceView): highlighting, search/replace |
+| aco-pdf | native | `aco-arch-dotfiles-pdf` | `aco-pdf` (`org.aco.Pdf`) | PDF reader (Poppler): page thumbnails, search and fit controls |
+| aco-edit | native | `aco-arch-dotfiles-edit` | `aco-edit` (`org.aco.Edit`) | UTF-8 editor (GtkSourceView): highlighting, search and replace, cursor position |
+| aco-media-tools | native (meta) | `aco-arch-dotfiles-media-tools` | – | installs Musik, Video and Bilder together |
+| aco-music | native | `aco-arch-dotfiles-music` | `aco-music` | library, queue, mini player and MPRIS |
+| aco-video | native | `aco-arch-dotfiles-video` | `aco-video` | subtitles, audio tracks, resume and skip controls |
+| aco-images | native | `aco-arch-dotfiles-images` | `aco-images` | gallery, compare, crop, slideshow and image dimensions |
 
 ## Add-on groups
 
 | Group | Repo | Kind | Package | Purpose |
 | --- | --- | --- | --- | --- |
-| media | aco-media-tools | native (meta) | `aco-arch-dotfiles-media-tools` | installs Musik, Video and Bilder together |
-| media | aco-music | native | `aco-arch-dotfiles-music` | `aco-music` (`org.aco.Music`): library, queue, mini player, MPRIS |
-| media | aco-video | native | `aco-arch-dotfiles-video` | `aco-video` (`org.aco.Video`): subtitles, tracks, resume |
-| media | aco-images | native | `aco-arch-dotfiles-images` | `aco-images` (`org.aco.Images`): gallery, compare, crop, rename, slideshow |
 | browser | – | Arch package | `firefox` | from the Arch repositories |
 | obsidian | aco-obsidian | module | `aco-arch-dotfiles-aco-obsidian` | Obsidian (Arch) + ACO CSS snippet in every vault |
 | code | aco-code | module | `aco-arch-dotfiles-aco-code` | Code - OSS (Arch) + generated ACO colour theme |
@@ -53,6 +53,8 @@ group, never part of the base metapackage; **library** / **tooling** = no packag
 
 ## Install groups
 
-`install.sh` without options installs **standard** = `base media browser`. Options: `--minimal` (base), `--full`,
+`install.sh` without options installs **standard** = `base browser`. Options: `--minimal` (base), `--full`,
 `--with a,b`, or package names. After installation: `aco install <group>`, `aco remove <group>`, `aco groups`.
 The group table lives twice (in `install.sh` and in `packages/aco-arch-dotfiles-core/aco`); a test keeps them equal.
+
+The `media` group is also available on its own. The base desktop already requires it.

@@ -4,6 +4,16 @@ Short, dated notes of what was done in each working session and where. Newest fi
 of the component repositories; decisions in [DECISIONS.md](DECISIONS.md).
 
 ## 2026-11-27
+- **Native workspace design** (aco-gtk4): opaque palette surfaces, distinct action buttons and shared navigation
+  styling. Settings has grouped search and Files has an address bar and creation menu.
+- **Documents and media:** Editor adds cursor position and detects external changes before saving. PDF adds
+  page thumbnails, fit modes and per-match navigation. Images adds previous/next controls and dimensions.
+  Music keeps its active queue through the library scan. Video exposes ten-second skip controls.
+- **VM checks:** opened all seven native apps under Hyprland and captured dark-theme screenshots. Verified
+  settings search, Files navigation, Editor save and conflict handling, PDF search, image navigation, music
+  playback with stable queue metadata, and video subtitles and seeking.
+- **Installer:** the base metapackage depends on all seven native apps. The 68 registry and installer tests pass
+  on Arch, and Pacman reports the expected dependencies in both built metapackages.
 - **Code - OSS theming** (aco-code): generated colour theme + first-run settings; verified in the VM (native
   Wayland, colours match the palette). aco-theme 0.2.0 adds `vscode_base` and login hooks.
 - **Repository split:** aco-media-tools became a meta package; aco-music, aco-video, aco-images, aco-pdf, aco-edit and
