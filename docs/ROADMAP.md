@@ -16,8 +16,12 @@ Done and pushed to `develop` of every repository:
   `--minimal --full --with`, `aco install|remove|groups`. Registry tests and component checks (32) pass in the VM;
   add-on, meta and native packages build with makepkg in the VM (aco-pdf: 396 KB binary).
 - aco-files tested in the VM: grid/list, previews, tabs/windows, recursive search, context menu, copy/paste with
-  conflict dialog, duplicate, new folder, trash with undo (Ctrl+Z), "show in folder" by argument. Release binary
-  958 KB, about 65 MB own memory with a folder of pictures open.
+  conflict dialog, move with "skip" (skipped files stay), duplicate, new folder, rename, properties, settings, trash
+  with undo (Ctrl+Z), SFTP share with the GVfs password dialog, `FileManager1.ShowItems` over D-Bus, "show in
+  folder" by argument. Release binary 958 KB, about 65 MB own memory with a folder of pictures open.
+- Not exercised yet (need a manual pass with a real mouse/hardware): drag and drop, the "Rückgängig" button in the
+  toast, eject/unmount of drives, "open with", compress/extract, SMB shares. aco-code's first-run
+  `settings.json` is written correctly; its effect inside Code (no chat panel) was not looked at.
 
 Not done: nothing is on `main` yet, so the signed registry does not contain the new packages. See the release checklist.
 
@@ -51,6 +55,8 @@ command `aco-files`, app id `org.aco.Files`. Goal: everything a user needs from 
 Module map: `pane.rs` (folder model, views, search, drag and drop), `window.rs` (tabs, actions, shortcuts),
 `ops.rs` (threaded file operations), `trash.rs` (undo), `thumbs.rs`, `sidebar.rs`, `pathbar.rs`, `dialogs.rs`,
 `clip.rs` (clipboard formats of GNOME/KDE), `dbus.rs` (FileManager1), `settings.rs`.
+`aco install <group>` activates only the group's own config modules (`aco-obsidian`, `aco-code`); `base` and
+`full` activate everything, so modules the user deactivated stay off.
 
 - **Views:** grid with thumbnails and list with columns (name, size, type, modified); sort by name/size/type/date,
   ascending/descending, folders first; zoom; remembers the view.

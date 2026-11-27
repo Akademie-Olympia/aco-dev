@@ -20,6 +20,9 @@ of the component repositories; decisions in [DECISIONS.md](DECISIONS.md).
   focus loss after menus (file shortcuts now on the window in the bubble phase), unreliable `trash:///` for undo.
   Registered as a native base package; aco-hypr uses it for Super+E and folders, Dolphin is optional.
 - **CI:** native app repositories got the package workflow; develop CI stays red until the release merge (ROADMAP).
+- **Review fixes:** aco-files no longer deletes skipped files when a move merges folders; a window with a running
+  operation hides until it is done. `aco install <group>` no longer re-activates modules the user deactivated
+  (new CLI tests). Verified in the VM: SFTP mount with password dialog, FileManager1 over D-Bus, dialogs.
 
 ## 2026-11-26
 - Bar, control centre, notification side panel, Arch menu, energy menu, lock screen and SDDM login redesigned.

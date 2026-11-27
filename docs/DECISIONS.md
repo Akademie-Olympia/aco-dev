@@ -90,6 +90,11 @@ by adding a new one that names the old number; do not rewrite history.
   files are only opened with their registered app (never executed), archives through `bsdtar` (refuses absolute
   paths and `..`), thumbnails private (0600) in the shared freedesktop cache, remote previews off by default.
 
+### D18 – Moves that fall back to copying delete per file (2026-11-27)
+- **Where:** `aco-files/src/ops.rs` (`copy_tree` with `moving`).
+- **Why:** deleting the whole source after a merge lost files the user chose to skip. A source file is removed only
+  after its own copy succeeded; folders only when empty.
+
 ### D17 – Undo of "move to trash" reads the trash folders directly (2026-11-27)
 - **Where:** `aco-files/src/trash.rs`.
 - **Why:** GVfs' `trash:///` listing can lag behind a file that was just trashed (seen in the VM); the `.trashinfo`
